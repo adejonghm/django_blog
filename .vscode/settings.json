@@ -1,7 +1,0 @@
-{
-    "files.exclude": {
-        "**/__pycache__": true, 
-        "**/*.pyc": true
-    },
-    "python.pythonPath": "/home/dejongh/.local/share/virtualenvs/django_tuto_01-BI6JgzNJ/bin/python"
-}
