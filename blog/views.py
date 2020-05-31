@@ -18,7 +18,7 @@ posts = [
         'author': 'Ruperto',
         'title': 'Third Post',
         'content': 'This is my third post in my blog',
-        'date_posted': 'May 28, 2020'
+        'date_posted': 'May 30, 2020'
     }
 ]
 
