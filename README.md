@@ -19,4 +19,6 @@ If you want to run this project on a local machine, follow these steps:
 
 - LinkedIn: [adejonghm](https://www.linkedin.com/in/adejonghm/)
 
+[![time tracker](https://wakatime.com/badge/github/adejonghm/first_blog.svg)](https://wakatime.com/badge/github/adejonghm/first_blog)
+
 <!-- [Back To The Top](#the-blog) -->
