@@ -3,23 +3,37 @@
 <!-- My block -->
 {% block content %}
 <div class="content-section">
+    <legend class="border-bottom mb-4">Profile Information</legend>
     <div class="media">
         <img class="rounded-circle account-img" src="{{ user.profile.image.url}}">
         <div class="media-body">
-            <h2 class="account-heading"> {{ user.username }} </h2>
-            <p class="text-secondary"><i>name:</i> {{ user.first_name }} {{ user.last_name }} </p>
-            <p class="text-secondary"><i>email:</i> {{ user.email }} </p>
+            <p class="text-secondary"> <i>User:</i> <b> {{ user.username }} </b></p>
+            <p class="text-secondary"> <i>Name:</i> <b> {{ user.first_name }} {{ user.last_name }} </b></p>
+            <p class="text-secondary"> <i>eMail:</i> <b> {{ user.email }} </b></p>
+            <p class="text-secondary"> <i>Bio:</i> <br> {{ user.profile.bio }} </p>
         </div>
     </div>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Profile Info</legend>
-            {{ u_form | crispy }} {{ p_form | crispy }}
-        </fieldset>
-        <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Update</button>
+    <br>
+    <div class="article-metadata">
+        {% if user.is_superuser %}
+        <a class="link-profile" href="{% url 'update_profile' %}">Edit Profile Info</a>
+        <a class="link-profile" href="../admin/">Go to the Admin Panel</a>
+        <!--  -->
+        {% else %}
+        <a class="link-profile" href="{% url 'update_profile' %}">Edit Profile Info</a>
+        <!--  -->
+        {% endif %}
+    </div>
+    <br> {% for post in user.post_set.all %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <small class="text-muted">{{ post.date_posted | date:"F d, Y" }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
         </div>
-    </form>
+    </article>
+    {% endfor %}
 </div>
+
 {% endblock content %}
