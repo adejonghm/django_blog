@@ -7,30 +7,36 @@
     <div class="media">
         <img class="rounded-circle account-img" src="{{ user.profile.image.url}}">
         <div class="media-body">
-            <p class="text-secondary"> <i>User:</i> <b> {{ user.username }} </b></p>
-            <p class="text-secondary"> <i>Name:</i> <b> {{ user.first_name }} {{ user.last_name }} </b></p>
-            <p class="text-secondary"> <i>eMail:</i> <b> {{ user.email }} </b></p>
-            <p class="text-secondary"> <i>Bio:</i> <br> {{ user.profile.bio }} </p>
+            <p class="text-secondary"> <i>User:</i><b> {{ user.username }} </b></p>
+            <p class="text-secondary"> <i>Name:</i><b> {{ user.first_name }} {{ user.last_name }} </b></p>
+            <p class="text-secondary"> <i>eMail:</i><b> {{ user.email }} </b></p>
+            <p class="text-secondary"> {{ user.profile.bio }} </p>
         </div>
     </div>
     <br>
-    <div class="article-metadata">
+    <div>
         {% if user.is_superuser %}
-        <a class="link-profile" href="{% url 'update_profile' %}">Edit Profile Info</a>
-        <a class="link-profile" href="../admin/">Go to the Admin Panel</a>
+        <a class="btn btn-outline-secondary btn-sm mr-4" href="{% url 'update_profile' %}">Edit Profile Info</a>
+        <a class="btn btn-outline-secondary btn-sm mr-4" href="{% url 'post-create' %}">Create New Post</a>
+        <a class="btn btn-outline-secondary btn-sm mr-4" href="../admin/" target="new tab">Go to the Admin Panel</a>
+        <a class="btn btn-outline-secondary btn-sm mr-4" href="{% url 'logout' %}">Logout</a>
         <!--  -->
         {% else %}
-        <a class="link-profile" href="{% url 'update_profile' %}">Edit Profile Info</a>
+        <a class="btn btn-outline-secondary btn-sm mr-4" href="{% url 'update_profile' %}">Edit Profile Info</a>
+        <a class="btn btn-outline-secondary btn-sm mr-4" href="{% url 'post-create' %}">Create New Post</a>
+        <a class="btn btn-outline-secondary btn-sm mr-4" href="{% url 'logout' %}">Logout</a>
         <!--  -->
         {% endif %}
     </div>
-    <br> {% for post in user.post_set.all %}
+    <br>
+    <legend class="border-bottom mb-4">Your Posts</legend>
+    {% for post in user.post_set.all %}
     <article class="media content-section">
         <div class="media-body">
             <div class="article-metadata">
                 <small class="text-muted">{{ post.date_posted | date:"F d, Y" }}</small>
             </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
         </div>
     </article>
     {% endfor %}

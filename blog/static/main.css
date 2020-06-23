@@ -108,7 +108,7 @@ a.article-title:hover {
 }
 
 .link-profile-panel {
-    margin-left: 85%;
+    margin-left: 60%;
     text-decoration: none;
     font-style: italic;
     font-size: small;
@@ -117,8 +117,4 @@ a.article-title:hover {
 .link-profile-panel:hover {
     color: #444444;
     text-decoration: none;
-}
-
-.link-profile {
-    margin-right: 30px;
 }
