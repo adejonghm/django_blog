@@ -13,9 +13,9 @@
 
     <!-- My Block code -->
     {% if title %}
-    <title>The Blog - {{ title }}</title>
+	    <title>The Blog - {{ title }}</title>
     {% else %}
-    <title>The Blog </title>
+    	<title>The Blog </title>
     {% endif %}
 
 </head>
@@ -34,14 +34,14 @@
                         <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
                         <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
                     </div>
+    
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
                         {% if user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                        <!--  -->
+	                        <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                         {% else %}
-                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                        <!--<a class="nav-item nav-link" href="{% url 'register' %}">Sing Up</a>-->
+    	                    <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+    	                    <!--<a class="nav-item nav-link" href="{% url 'register' %}">Sing Up</a>-->
                         {% endif %}
                     </div>
                 </div>
@@ -54,11 +54,17 @@
         <div class="row">
             <div class="col-md-8">
                 <!-- Putting message in home page -->
-                {% if messages %} {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
-                    {{ message }}
-                </div>
-                {% endfor %} {% endif %} {% block content %} {% endblock content%}
+                {% if messages %} 
+                	{% for message in messages %}
+		                <div class="alert alert-{{ message.tags }}">
+		                	{{ message }}
+		                </div>
+                	{% endfor %} 
+                {% endif %} 
+                
+                {% block content %}
+                	<!-- THE CONTENT IS HERE -->
+                {% endblock content%}
             </div>
             <div class="col-md-4">
                 <div class="content-section">
