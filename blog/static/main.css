@@ -108,10 +108,7 @@ a.article-title:hover {
 }
 
 .link-profile-panel {
-    margin-left: 60%;
     text-decoration: none;
-    font-style: italic;
-    font-size: small;
 }
 
 .link-profile-panel:hover {

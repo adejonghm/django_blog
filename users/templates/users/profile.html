@@ -16,17 +16,15 @@
     <br>
     <div>
         {% if user.is_superuser %}
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'update_profile' %}">Edit Profile Info</a>
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'post-create' %}">Create New Post</a>
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'user-posts' user.username%}">View Your Posts</a>
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="../admin/" target="new tab">Go to the Admin Panel</a>
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'logout' %}">Logout</a>
-        {% else %}
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'update_profile' %}">Edit Profile Info</a>
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'post-create' %}">Create New Post</a>
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'user-posts' user.username%}">View Your Posts</a>
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'logout' %}">Logout</a>
-        {% endif %}
+		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'update_profile' %}">Edit Profile Information</a>
+		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'post_create' %}">Create New Post</a>
+		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'user_posts' user.username%}">View Your Posts</a>
+		    <a class="btn btn-outline-secondary btn-sm mr-3" href="../admin/" target="new tab">Go to the Admin Panel</a> 
+	    {% else %}
+		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'update_profile' %}">Edit Profile Information</a>
+		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'post_create' %}">Create New Post</a>
+		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'user_posts' user.username%}">View Your Posts</a> 
+	    {% endif %}
     </div>
     <!--<br>
     <legend class="border-bottom mb-4">Your Posts</legend>
@@ -36,7 +34,7 @@
             <div class="article-metadata">
                 <small class="text-muted">{{ post.date_posted | date:"F d, Y" }}</small>
             </div>
-            <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+            <h2><a class="article-title" href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
         </div>
     </article>
     {% endfor %} -->

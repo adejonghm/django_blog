@@ -13,7 +13,7 @@
 
     <!-- My Block code -->
     {% if title %}
-	    <title>The Blog - {{ title }}</title>
+    	<title>The Blog - {{ title }}</title>
     {% else %}
     	<title>The Blog </title>
     {% endif %}
@@ -31,18 +31,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
-                        <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+                        <h3 class="navbar-brand mr-4">The Mini-Blog</h3>
                     </div>
-    
+
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav reference">
-                        {% if user.is_authenticated %}
-                        	<a class="nav-item nav-link" href="{% url 'profile' %}">Hi, {{ user.first_name }}</a>
-                        {% else %}
-    	                    <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-    	                    <a class="nav-item nav-link" href="{% url 'register' %}">Sing Up</a>
-                        {% endif %}
+                        <a class="nav-item nav-link" href="{% url 'blog_home' %}">Home</a>
+                        <a class="nav-item nav-link" href="{% url 'blog_about' %}">About</a>
                     </div>
                 </div>
             </div>
@@ -54,28 +49,54 @@
         <div class="row">
             <div class="col-md-8">
                 <!-- PUTTING MESSAGE IN HOME PAGE -->
-                {% if messages %} 
-                	{% for message in messages %}
-		                <div class="alert alert-{{ message.tags }}">
-		                	{{ message }}
-		                </div>
-                	{% endfor %} 
-                {% endif %} 
-                
-                {% block content %}
+                {% if messages %} {% for message in messages %}
+		            <div class="alert alert-{{ message.tags }}">
+		                {{ message }}
+		            </div>
+                {% endfor %} {% endif %} {% block content %}
                 	<!-- THE CONTENT IS HERE -->
                 {% endblock content%}
             </div>
             <div class="col-md-4">
-                <div class="content-section">
-                    <h3>Sidebar</h3>
-                    <ul class="list-group">
-                        <li class="list-group-item list-group-item-light">Latest Posts</li>
-                        <li class="list-group-item list-group-item-light">Announcements</li>
-                        <li class="list-group-item list-group-item-light">Calendars</li>
-                    </ul>
-                    </p>
-                </div>
+                {% if user.is_authenticated %}
+		            <div class="content-section">
+		                <h4>Sidebar</h4>
+		                <ul class="list-group">
+		                    <li class="list-group-item list-group-item-light">Latest Posts</li>
+		                    <li class="list-group-item list-group-item-light">Announcements</li>
+		                    <li class="list-group-item list-group-item-light">Calendars</li>
+		                </ul>
+		            </div>
+		            <div class="content-section">
+		                <h4>Hi, {{ user.first_name }}</h4>
+		                <ul class="list-group">
+		                    <li class="list-group-item list-group-item-light">
+		                        <a class="link-profile-panel" href="{% url 'profile' %}">My Account</a>
+		                    </li>
+		                    <li class="list-group-item list-group-item-light">
+		                        <a class="link-profile-panel" href="{% url 'logout' %}">Logout</a>
+		                    </li>
+		                </ul>
+		            </div>
+                {% else %}
+		            <div class="content-section">
+		                <h4>Sidebar</h4>
+		                <ul class="list-group">
+		                    <li class="list-group-item list-group-item-light">Latest Posts</li>
+		                    <li class="list-group-item list-group-item-light">Announcements</li>
+		                    <li class="list-group-item list-group-item-light">Calendars</li>
+		                </ul>
+		            </div>
+		            <div class="content-section">
+		                <h4>Session</h4>
+		                <ul class="list-group">
+		                    <li class="list-group-item list-group-item-light">
+		                        <a class="link-profile-panel" href="{% url 'login' %}">Login</a>
+		                    </li>
+		                </ul>
+		            </div>
+                {% endif %}
+
             </div>
         </div>
     </main>
