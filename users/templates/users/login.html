@@ -14,8 +14,12 @@
         </div>
     </form>
     <div class="border-top pt-3">
+        <small class="text-muted mr-5">
+            Forgot your Password?<a class="ml-1" href="{% url 'password_reset' %}">Click Here</a>
+        </small>
+
         <small class="text-muted">
-            Need An Account? <a class="ml-2" href="{% url 'register' %}">Sing Up Now</a>
+            Don't you have an account yet?<a class="ml-1" href="{% url 'register' %}">Sing Up Now</a>
         </small>
     </div>
 </div>
