@@ -73,14 +73,40 @@
 		            </div>
 		            <div class="content-section">
 		                <h4>Hi, {{ user.first_name }}</h4>
-		                <ul class="list-group">
-		                    <li class="list-group-item list-group-item-light">
-		                        <a class="link-profile-panel" href="{% url 'profile' %}">My Account</a>
-		                    </li>
-		                    <li class="list-group-item list-group-item-light">
-		                        <a class="link-profile-panel" href="{% url 'logout' %}">Logout</a>
-		                    </li>
-		                </ul>
+		                {% if user.is_superuser %}
+		                	<ul class="list-group">
+				                <li class="list-group-item list-group-item-light">
+				                    <a class="link-profile-panel" href="{% url 'profile' %}">My Account</a>
+				                </li>
+				                <li class="list-group-item list-group-item-light">
+				                    <a class="link-profile-panel" href="{% url 'post_create' %}">Create New Post</a>
+				                </li>
+				                <li class="list-group-item list-group-item-light">
+				                    <a class="link-profile-panel" href="{% url 'user_posts' user.username%}">View All My Posts</a>
+				                </li>
+				                <li class="list-group-item list-group-item-light">
+				                    <a class="link-profile-panel" href="../admin/" target="new tab">Go to the Admin Panel</a> 
+				                </li>
+				                <li class="list-group-item list-group-item-light">
+				                    <a class="link-profile-panel" href="{% url 'logout' %}">Logout</a>
+				                </li>
+		                	</ul>
+		                {% else %}
+		                	<ul class="list-group">
+				                <li class="list-group-item list-group-item-light">
+				                    <a class="link-profile-panel" href="{% url 'profile' %}">My Account</a>
+				                </li>
+				                <li class="list-group-item list-group-item-light">
+				                    <a class="link-profile-panel" href="{% url 'post_create' %}">Create New Post</a>
+				                </li>
+				                <li class="list-group-item list-group-item-light">
+				                    <a class="link-profile-panel" href="{% url 'user_posts' user.username%}">View All My Posts</a>
+				                </li>
+				                <li class="list-group-item list-group-item-light">
+				                    <a class="link-profile-panel" href="{% url 'logout' %}">Logout</a>
+				                </li>
+		                	</ul>
+		                {% endif %}
 		            </div>
                 {% else %}
 		            <div class="content-section">
