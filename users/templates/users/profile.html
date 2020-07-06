@@ -2,42 +2,41 @@
 
 <!-- My block -->
 {% block content %}
-<div class="content-section">
-    <legend class="border-bottom mb-4">Profile Information</legend>
-    <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url}}">
-        <div class="media-body">
-            <p class="text-secondary"> <i>User:</i><b> {{ user.username }} </b></p>
-            <p class="text-secondary"> <i>Name:</i><b> {{ user.first_name }} {{ user.last_name }} </b></p>
-            <p class="text-secondary"> <i>eMail:</i><b> {{ user.email }} </b></p>
-            <p class="text-secondary"> {{ user.profile.bio }} </p>
-        </div>
-    </div>
-    <br>
-    <div>
-        {% if user.is_superuser %}
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'update_profile' %}">Edit Profile Information</a>
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'post_create' %}">Create New Post</a>
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'user_posts' user.username%}">View Your Posts</a>
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="../admin/" target="new tab">Go to the Admin Panel</a> 
-	    {% else %}
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'update_profile' %}">Edit Profile Information</a>
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'post_create' %}">Create New Post</a>
-		    <a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'user_posts' user.username%}">View Your Posts</a> 
-	    {% endif %}
-    </div>
-    <!--<br>
-    <legend class="border-bottom mb-4">Your Posts</legend>
-    {% for post in user.post_set.all %}
-    <article class="media content-section">
-        <div class="media-body">
-            <div class="article-metadata">
-                <small class="text-muted">{{ post.date_posted | date:"F d, Y" }}</small>
-            </div>
-            <h2><a class="article-title" href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
-        </div>
-    </article>
-    {% endfor %} -->
-</div>
-
+	<div class="content-section">
+		<legend class="border-bottom mb-4">Profile Information</legend>
+		<div class="media">
+		    <img class="rounded-circle account-img" src="{{ user.profile.image.url}}">
+		    <div class="media-body">
+		        <p class="text-secondary"> <i>User:</i><b> {{ user.username }} </b></p>
+		        <p class="text-secondary"> <i>Name:</i><b> {{ user.first_name }} {{ user.last_name }} </b></p>
+		        <p class="text-secondary"> <i>eMail:</i><b> {{ user.email }} </b></p>
+		        <p class="text-secondary"> {{ user.profile.bio }} </p>
+		    </div>
+		</div>
+		<br>
+		<div>
+		    {% if user.is_superuser %}
+				<a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'update_profile' %}">Edit Profile Information</a>
+				<a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'post_create' %}">Create New Post</a>
+				<a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'user_posts' user.username%}">View All My Posts</a>
+				<a class="btn btn-outline-secondary btn-sm mr-3" href="../admin/" target="new tab">Go to the Admin Panel</a> 
+			{% else %}
+				<a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'update_profile' %}">Edit Profile Information</a>
+				<a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'post_create' %}">Create New Post</a>
+				<a class="btn btn-outline-secondary btn-sm mr-3" href="{% url 'user_posts' user.username%}">View All My Posts</a> 
+			{% endif %}
+		</div>
+		<!--<br>
+		<legend class="border-bottom mb-4">Your Posts</legend>
+		{% for post in user.post_set.all %}
+		<article class="media content-section">
+		    <div class="media-body">
+		        <div class="article-metadata">
+		            <small class="text-muted">{{ post.date_posted | date:"F d, Y" }}</small>
+		        </div>
+		        <h2><a class="article-title" href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
+		    </div>
+		</article>
+		{% endfor %} -->
+	</div>
 {% endblock content %}

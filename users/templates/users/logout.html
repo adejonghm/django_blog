@@ -2,5 +2,10 @@
 
 <!-- My block -->
 {% block content %}
-<h2>You have been logged out!</h2>
+	<div class="alert alert-success">
+		You have been logged out!
+	</div>
+	<small class="text-muted">
+		<a class="link-profile-panel ml-1" href="{% url 'blog_home' %}">Back to Home</a>
+	</small>
 {% endblock content %}
