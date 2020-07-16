@@ -8,17 +8,19 @@ This is my first app made with Django following a tutorial on Youtube. This teac
 
 If you want to run this project on a local machine, follow these steps:
 
-1. Create a Virtual Enviroment.
-2. Use the **requeriments.txt** file to install all packages and their dependencies locally.
-3. Run migrations.
-4. Run the Django Server.
+1. Create a Virtual Enviroment. (*)
+2. Use the **requirements.txt** file to install all packages and their dependencies locally in case you desire to create a Virtual Environment.
+3. Inside the Virtual Enviroment run migrations. &nbsp; `python manage.py migrate`
+4. Inside the Virtual Enviroment run the Django Server. &nbsp; `python manage.py runserver`
+
+(*) It is recommended to avoid conflicts with other packages and different versions.
+
+*NOTE: Use the **check_setup.py** file to check if you have any of these packages already installed in case you don’t want to create a Virtual Environment.*
 
 ## Contact Info
 
 - email: dejongh.cu@gmail.com
 
 - LinkedIn: [adejonghm](https://www.linkedin.com/in/adejonghm/)
-
-[![time tracker](https://wakatime.com/badge/github/adejonghm/first_blog.svg)](https://wakatime.com/badge/github/adejonghm/first_blog)
 
 <!-- [Back To The Top](#the-blog) -->
