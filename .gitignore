@@ -180,6 +180,7 @@ dmypy.json
 
 ### My Files ###
 my_notes
+.wakatime-project
 blog/migrations/*.*
 users/migrations/*.*
 
