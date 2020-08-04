@@ -28,6 +28,7 @@ for (pkg, version_wanted) in packages:
     module_name = pkg_names.get(pkg, pkg)
     try:
         m = __import__(module_name)
+        version_installed = m.__version__
         status = '✓'
     except ImportError as e:
         m = None
