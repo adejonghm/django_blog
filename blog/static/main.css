@@ -125,3 +125,9 @@ span {
     display: inline-block;
     transform: rotate(180deg);
 }
+
+.phrase {
+    margin-top: 10rem;
+    margin-left: 10rem;
+    font-size: small;
+}

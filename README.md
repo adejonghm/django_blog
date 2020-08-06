@@ -23,4 +23,6 @@ If you want to run this project on a local machine, follow these steps:
 
 - LinkedIn: [adejonghm](https://www.linkedin.com/in/adejonghm/)
 
+- CodersRank: [adejongh](https://profile.codersrank.io/user/adejonghm)
+
 <!-- [Back To The Top](#the-blog) -->
