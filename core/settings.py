@@ -25,7 +25,10 @@ SECRET_KEY = '7v2*40)tft-(od8+mqe^9=an49$(tud83o9%5_!az1g=gnw(3c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = [
+    'miniblogadejonghm.herokuapp.com'
+]
 
 
 # Application definition
