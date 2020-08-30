@@ -28,7 +28,7 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = [
-    'miniblogadejonghm.herokuapp.com'
+    'thisistheminiblog.herokuapp.com'
 ]
 
 
