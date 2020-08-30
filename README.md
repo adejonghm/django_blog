@@ -10,8 +10,9 @@ If you want to run this project on a local machine, follow these steps:
 
 1. Create a Virtual Enviroment. (*)
 2. Use the **requirements.txt** file to install all packages and their dependencies locally in case you desire to create a Virtual Environment.
-3. Inside the Virtual Enviroment run migrations. &nbsp; `python manage.py migrate`
-4. Inside the Virtual Enviroment run the Django Server. &nbsp; `python manage.py runserver`
+3. Inside the Virtual Enviroment create migrations. &nbsp; `python manage.py makemigrations`
+4. Then, Inside the Virtual Enviroment run migrations. &nbsp; `python manage.py migrate`
+5. Inside the Virtual Enviroment run the Django Server. &nbsp; `python manage.py runserver`
 
 (*) It is recommended to avoid conflicts with other packages and different versions.
 
@@ -21,8 +22,8 @@ If you want to run this project on a local machine, follow these steps:
 
 - email: dejongh.cu@gmail.com
 
-- LinkedIn: [adejonghm](https://www.linkedin.com/in/adejonghm/)
+- LinkedIn: [adejonghm](https://www.linkedin.com/in/adejonghm)
 
-- CodersRank: [adejongh](https://profile.codersrank.io/user/adejonghm)
+- CodersRank: [adejonghm](https://profile.codersrank.io/user/adejonghm)
 
 <!-- [Back To The Top](#the-blog) -->
