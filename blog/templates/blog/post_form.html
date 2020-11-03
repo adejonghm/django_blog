@@ -7,12 +7,15 @@
 		    {% csrf_token %}
 		    <fieldset class="form-group">
 		        {% if form.title.value == NULL %}
-		        <legend class="border-bottom mb-4">Create a New Post</legend>
+		        	<legend class="border-bottom mb-4">Create a New Post</legend>
 		        {% else %}
-		        <legend class="border-bottom mb-4">Update Post</legend>
-		        {% endif %} {{ form | crispy }}
+		        	<legend class="border-bottom mb-4">Update Post</legend>
+				{% endif %} 
+				
+				{{ form | crispy }}
 		    </fieldset>
-		    <div class="form-group">
+			
+			<div class="form-group">
 		        <button class="btn btn-outline-info" type="submit">Post</button>
 		    </div>
 		</form>
